@@ -1,0 +1,39 @@
+paths:
+  datasets_dir: "data/datasets"
+  artifacts_dir: "models/artifacts"
+
+random_seed: 42
+
+test_size_by_date: 0.2  # Last 20% by month end
+
+model_name: "lgbm_model"
+
+universe:
+  tickers:
+    - "AAPL"
+    - "MSFT"
+    - "NVDA"
+    - "GOOGL"
+    - "AMZN"
+    - "META"
+    - "BRK-B"
+    - "JPM"
+    - "XOM"
+    - "UNH"
+
+forward_horizon_days: 90  # Forward return horizon for target calculation
+
+lightgbm:
+  objective: "regression"
+  n_estimators: 2000
+  learning_rate: 0.05
+  num_leaves: 31
+  max_depth: 8
+  subsample: 0.8
+  colsample_bytree: 0.8
+  reg_alpha: 0.1
+  reg_lambda: 0.1
+  n_jobs: -1
+  early_stopping_rounds: 100
+  log_evaluation_period: 50
+
